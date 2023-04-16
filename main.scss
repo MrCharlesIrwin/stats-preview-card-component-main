@@ -1,0 +1,82 @@
+$main-background: hsl(233, 47%, 7%);
+$bluecard-background: hsl(244, 38%, 16%);
+$Soft-violet-accent: hsl(277, 64%, 61%);
+$main-heading-stats: hsl(0, 0%, 100%);
+$main-paragraph: hsla(0, 0%, 100%, 0.75);
+$stat-headings: hsla(0, 0%, 100%, 0.6);
+
+h1 {
+  font-size: clamp(1.4rem, 2vw, 1.7rem);
+  color: $main-heading-stats;
+}
+b {
+  color: $Soft-violet-accent;
+}
+
+body {
+  background-color: $main-background;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: $main-paragraph;
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+}
+main {
+  background-color: $bluecard-background;
+  border-radius: 9px;
+  overflow: hidden;
+  display: grid;
+  margin: 70px 10%;
+  width: clamp(285px, 70vw, 1400px);
+  section:last-child {
+    width: 85%;
+    margin: auto;
+  }
+}
+.img-wrapper {
+  position: relative;
+  position: 100%;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background-color: $Soft-violet-accent;
+    opacity: 0.8;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+}
+.grid-wrapper {
+  display: grid;
+  margin: 7% 0;
+  em {
+    color: $main-heading-stats;
+    font-size: clamp(1.4em, 2.5vw, 1.6rem);
+    font-weight: 900;
+  }
+}
+@media (min-width: 500px) {
+  .grid-wrapper {
+    grid-auto-flow: column;
+  }
+}
+@media (min-width: 850px) {
+  body {
+    text-align: start;
+  }
+  main {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    section:first-child {
+      grid-column: 2/3;
+    }
+  }
+}
